@@ -1,0 +1,88 @@
+/employees:
+  get:
+    summary: Obtener todos los empleados
+    tags:
+      - Empleados
+    security:
+      - bearerAuth: []
+    responses:
+      200:
+        description: Lista de empleados
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "../components.yaml#/components/schemas/Employee"
+
+  post:
+    summary: Agregar un empleado nuevo
+    tags:
+      - Empleados
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../components.yaml#/components/schemas/Employee"
+    responses:
+      201:
+        description: Empleado creado
+
+/employees/{id}:
+  put:
+    summary: Actualizar empleado
+    tags:
+      - Empleados
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../components.yaml#/components/schemas/Employee"
+    responses:
+      200:
+        description: Empleado actualizado
+
+  delete:
+    summary: Eliminar empleado
+    tags:
+      - Empleados
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    responses:
+      200:
+        description: Empleado eliminado
+
+/employees/search/{name}:
+  get:
+    summary: Buscar empleados por nombre
+    tags:
+      - Empleados
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      200:
+        description: Lista filtrada de empleados

@@ -1,0 +1,40 @@
+components:
+  schemas:
+
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT token
+
+    Employee:
+      type: object
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        apellidos:
+          type: string
+        telefono:
+          type: string
+        correo:
+          type: string
+        direccion:
+          type: string
+
+  responses:
+    UnauthorizedError:
+      description: JWT token faltante o inválido
