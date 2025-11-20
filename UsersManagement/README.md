@@ -51,6 +51,15 @@ src/
 
 ---
 
+## CLONAR EL REPO:
+
+```bash
+git clone https://github.com/Axelius55/TallerNodejsProyectoFinal.git
+```
+!!! Clonara el back y front
+
+---
+
 ## Levantar la API
 
 !Tener docker instalado 
